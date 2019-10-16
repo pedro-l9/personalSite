@@ -1,7 +1,7 @@
 .card {
   grid-area: card;
-  flex-basis: 50%;
-  height: 50vh;
+  padding-right: 15px;
+  padding-left: 15px;
   align-self: center;
   animation-duration: 2s;
 }
@@ -41,6 +41,7 @@
   display: flex;
   justify-content: center;
   font-weight: 100;
+  margin-top: 20px;
 }
 
 .dismiss {
@@ -61,8 +62,38 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 10px;
 }
 
 .social i {
   margin-left: 15px;
+}
+
+@media (max-width: 1360px) {
+  .card-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .avatar {
+    display: none;
+  }
+
+  .dismiss {
+    display: none;
+  }
+}
+
+@media (min-width: 801px) {
+  .card {
+    flex-basis: 50%;
+  }
+}
+
+@media (max-width: 800px) {
+  .card {
+    align-self: stretch;
+    order: 1;
+  }
 }

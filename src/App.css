@@ -3,15 +3,10 @@
   height: 100vh;
   width: 100vw;
   font-family: "PressStart2PRegular", sans-serif;
-  overflow: hidden;
-  flex-direction: row;
 }
 
 .technologies {
   display: flex;
-  flex-basis: 25%;
-  height: 100vh;
-  align-items: stretch;
   flex-direction: column;
 }
 
@@ -23,20 +18,65 @@
   flex-basis: 100%;
   padding-right: 15px;
   padding-left: 15px;
-}
-
-.technologies section .tech-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: flex-start;
-}
-.technologies .tech-list i {
-  margin-left: 10px;
   margin-top: 10px;
 }
 
-.acomplishments {
-  flex-basis: 25%;
-  height: 100vh;
+.technologies .tech-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-around;
+  margin-top: -12px;
+}
+.technologies .tech-list i {
+  margin-left: 12px;
+  margin-top: 12px;
+}
+
+.acomplishments-container {
+  height: 100%;
+}
+
+.acomplishments .title {
+  font-size: 12px !important;
+}
+
+@media (min-width: 801px) {
+  .App {
+    overflow: hidden;
+    flex-direction: row;
+  }
+
+  .acomplishments {
+    height: 98.5vh;
+    flex-basis: 25%;
+  }
+
+  .technologies {
+    height: 100vh;
+    flex-basis: 25%;
+  }
+}
+
+@media (max-width: 800px) {
+  .App {
+    overflow: auto;
+    flex-direction: column;
+  }
+
+  .App > section {
+    margin-top: 10px;
+  }
+
+  .card {
+    order: 1;
+  }
+
+  .technologies {
+    order: 2;
+  }
+
+  .acomplishments {
+    order: 3;
+  }
 }
