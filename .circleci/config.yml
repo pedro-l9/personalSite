@@ -1,0 +1,94 @@
+aliases:
+  - &restore-cache
+    restore_cache:
+      keys:
+        - dependency-cache-{{ .Branch }}-{{ checksum "package.json" }}
+        - dependency-cache- # used if checksum fails
+
+  - &save-cache
+    save_cache:
+      key: dependency-cache-{{ .Branch }}-{{ checksum "package.json" }}
+      paths:
+        - node_modules
+
+  - &restore-functions-cache
+    restore_cache:
+      keys:
+        - functions-dependency-cache-{{ checksum "functions/package-lock.json" }}
+        - functions-dependency-cache- # used if checksum fails
+
+  - &save-functions-cache
+    save_cache:
+      key: functions-dependency-cache-{{ checksum "functions/package-lock.json" }}
+      paths:
+        - functions/node_modules
+
+  - &defaults
+    docker:
+      - image: circleci/node:8
+
+version: 2
+jobs:
+  # Install and cache dependencies
+  install:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Update npm
+          command: "sudo npm install -g npm@latest"
+      - *restore-cache
+      - run: npm install
+      - *save-cache
+
+  # Build production bundle with Webpack
+  build:
+    <<: *defaults
+    steps:
+      - checkout
+      - *restore-cache
+      - run: npm run build
+      - *save-cache
+      - store_artifacts:
+          path: build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - build
+
+  # Deploy to Firebase
+  deploy:
+    <<: *defaults
+    steps:
+      - checkout
+      - *restore-cache
+      - attach_workspace:
+          at: .
+      - run: npm install firebase-tools@^7.6.1
+      - *restore-functions-cache
+      - run:
+          name: Install dependencies for Firebase Functions
+          command: npm install --prefix=functions
+      - *save-functions-cache
+      - run: npx firebase use default --token=$FIREBASE_DEPLOY_TOKEN
+      - run:
+          name: Deploy to Firebase
+          command: npx firebase deploy --non-interactive --token=$FIREBASE_DEPLOY_TOKEN
+
+workflows:
+  version: 2
+  test-build-deploy:
+    jobs:
+      - install
+      - build:
+          requires:
+            - install
+      - deploy:
+          requires:
+            - install
+            - build
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /v(\d)+(\.(\d)+)+/
