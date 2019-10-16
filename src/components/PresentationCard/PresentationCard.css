@@ -1,8 +1,9 @@
 .card {
   grid-area: card;
-  animation-duration: 2s;
-  width: 50vw;
+  flex-basis: 50%;
   height: 50vh;
+  align-self: center;
+  animation-duration: 2s;
 }
 
 .card-container {
@@ -30,8 +31,9 @@
   align-items: left;
 }
 
-#dito {
+#dito a {
   color: #5ac981;
+  text-decoration: none;
 }
 
 .checkMeOut {

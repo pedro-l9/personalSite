@@ -9,7 +9,7 @@ function dismissCard() {
 
 const PresentationCard = () => (
   <div className="card nes-container with-title is-dark is-rounded is-centered">
-    <p className="title">Hello!</p>
+    <p className="title">Hello, world!</p>
     <div className="card-container">
       <div className="avatar">
         <img
@@ -21,7 +21,15 @@ const PresentationCard = () => (
       <div className="presentation">
         My name is
         <h1>Pedro Lacerda</h1>I'm a Backend Engineer at{" "}
-        <span id="dito">Dito</span>
+        <span id="dito">
+          <a
+            href="https://dito.com.br"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Dito
+          </a>
+        </span>
       </div>
       <div className="checkMeOut">Check me out on:</div>
       <div className="dismiss">
@@ -34,10 +42,18 @@ const PresentationCard = () => (
         </button>
       </div>
       <div className="social">
-        <a href="https://github.com/pedro-l9" target="_blank">
+        <a
+          href="https://github.com/pedro-l9"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <i className="nes-icon github is-large" />
         </a>
-        <a href="https://www.linkedin.com/in/phenriquel/" target="_blank">
+        <a
+          href="https://www.linkedin.com/in/phenriquel/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <i className="nes-icon linkedin is-large" />
         </a>
       </div>
