@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import firebase from "firebase/app";
+import "firebase/analytics";
 
 import PresentationCard from "./components/PresentationCard/PresentationCard";
 
@@ -9,6 +11,12 @@ const mobileWidthThreshold = 800;
 function handleResize(setIsMobile: Function) {
   setIsMobile(window.innerWidth <= mobileWidthThreshold);
 }
+
+const handleDismiss = (setDismissed: Function) => () => {
+  firebase.analytics().logEvent("dismissed");
+
+  setDismissed(true);
+};
 
 const App: React.FC = () => {
   const [isMobile, setIsMobile] = useState(
@@ -70,7 +78,7 @@ const App: React.FC = () => {
       <PresentationCard
         isMobile={isMobile}
         isDismissed={isDismissed}
-        dismiss={() => setDismissed(true)}
+        dismiss={handleDismiss(setDismissed)}
       />
       <section
         className={`acomplishments ${

@@ -1,6 +1,12 @@
 import React from "react";
+import firebase from "firebase/app";
+import "firebase/analytics";
 
 import "./PresentationCard.css";
+
+function logEvent(event: string) {
+  firebase.analytics().logEvent(event);
+}
 
 const PresentationCard = (props: {
   isMobile: boolean;
@@ -34,6 +40,7 @@ const PresentationCard = (props: {
                 href="https://dito.com.br"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => logEvent("dito-access")}
               >
                 Dito
               </a>
@@ -55,6 +62,7 @@ const PresentationCard = (props: {
             href="https://github.com/pedro-l9"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => logEvent("github-access")}
           >
             <i className="nes-icon github is-large" />
           </a>
@@ -62,6 +70,7 @@ const PresentationCard = (props: {
             href="https://www.linkedin.com/in/phenriquel/"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => logEvent("linkedin-access")}
           >
             <i className="nes-icon linkedin is-large" />
           </a>
