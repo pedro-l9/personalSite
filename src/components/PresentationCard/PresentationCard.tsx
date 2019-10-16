@@ -80,20 +80,20 @@ const PresentationCard = (props: {
         </div>
         <div className="social">
           <a
-            href="https://github.com/pedro-l9"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => logEvent("github-access")}
-          >
-            <i className="nes-icon github is-large" />
-          </a>
-          <a
             href="https://www.linkedin.com/in/phenriquel/"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => logEvent("linkedin-access")}
           >
             <i className="nes-icon linkedin is-large" />
+          </a>
+          <a
+            href="https://github.com/pedro-l9"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => logEvent("github-access")}
+          >
+            <i className="nes-icon github is-large" />
           </a>
         </div>
       </div>
