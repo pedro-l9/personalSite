@@ -5,6 +5,13 @@
   animation-duration: 2s;
 }
 
+.card .title img {
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
+  margin-left: 5px;
+}
+
 .card-container {
   display: grid;
   height: 95%;

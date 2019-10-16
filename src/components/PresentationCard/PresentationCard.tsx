@@ -3,6 +3,8 @@ import firebase from "firebase/app";
 import "firebase/analytics";
 
 import "./PresentationCard.css";
+import br from "./flags/br.png";
+import usa from "./flags/usa.png";
 
 function logEvent(event: string) {
   firebase.analytics().logEvent(event);
@@ -21,7 +23,11 @@ const PresentationCard = (props: {
         ${props.isDismissed ? "animated hinge" : ""}
       `}
     >
-      <p className="title">Hello, world!</p>
+      <p className="title">
+        Hello, world!
+        <img src={br} alt="Brazil Flag" />
+        <img src={usa} alt="USA flag" />
+      </p>
       <div className="card-container">
         <div className="avatar">
           <img
