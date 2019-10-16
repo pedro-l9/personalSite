@@ -12,6 +12,15 @@
   margin-left: 5px;
 }
 
+.card .title button {
+  padding: 0;
+  border: none;
+  background: none;
+}
+.card .title button:focus {
+  outline: none;
+}
+
 .card-container {
   display: grid;
   height: 95%;

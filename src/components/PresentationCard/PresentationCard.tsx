@@ -6,15 +6,26 @@ import "./PresentationCard.css";
 import br from "./flags/br.png";
 import usa from "./flags/usa.png";
 
+import { useTranslation } from "react-i18next";
+import { i18n } from "i18next";
+
 function logEvent(event: string) {
   firebase.analytics().logEvent(event);
 }
+
+const changeLang = (i18next: i18n, lang: string) => () => {
+  i18next.changeLanguage(lang);
+};
 
 const PresentationCard = (props: {
   isMobile: boolean;
   isDismissed: boolean;
   dismiss: Function;
 }) => {
+  const { t, i18n } = useTranslation();
+
+  console.log(i18n.language);
+
   return (
     <div
       className={`
@@ -24,9 +35,13 @@ const PresentationCard = (props: {
       `}
     >
       <p className="title">
-        Hello, world!
-        <img src={br} alt="Brazil Flag" />
-        <img src={usa} alt="USA flag" />
+        {t("helloWorld")}
+        <button onClick={changeLang(i18n, "br")}>
+          <img src={br} alt="Brazil Flag" />
+        </button>
+        <button onClick={changeLang(i18n, "en")}>
+          <img src={usa} alt="USA flag" />
+        </button>
       </p>
       <div className="card-container">
         <div className="avatar">
@@ -37,10 +52,10 @@ const PresentationCard = (props: {
           />
         </div>
         <div className="presentation">
-          My name is
+          {t("myNameIs")}
           <h1>Pedro Lacerda</h1>{" "}
           <span>
-            I'm a Backend Engineer at{" "}
+            {t("backendEngineer")}
             <span id="dito">
               <a
                 href="https://dito.com.br"
@@ -53,14 +68,14 @@ const PresentationCard = (props: {
             </span>
           </span>
         </div>
-        <div className="checkMeOut">Check me out on:</div>
+        <div className="checkMeOut">{t("checkMeOut")}</div>
         <div className="dismiss">
           <button
             type="button"
             className="nes-btn is-error"
             onClick={() => props.dismiss()}
           >
-            Dismiss
+            {t("dismiss")}
           </button>
         </div>
         <div className="social">
