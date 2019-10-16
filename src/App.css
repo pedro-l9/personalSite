@@ -1,7 +1,7 @@
 .App {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(4, 1fr);
   grid-template-areas: ". . ." ". card ." ". card ." ". . .";
   height: 100vh;
   width: 100vw;
@@ -11,69 +11,4 @@
   color: gray;
   background-color: #212529;
   overflow: hidden;
-}
-
-.card {
-  grid-area: card;
-  animation-duration: 2s;
-}
-
-.card-container {
-  display: grid;
-  height: 95%;
-  width: 100%;
-  grid-template-columns: 1.1fr 2.9fr;
-  grid-template-rows: 1.1fr 0.1fr 0.8fr;
-  grid-template-areas: "avatar presentation" "avatar checkMeOut" "dismiss social";
-}
-
-.avatar {
-  grid-area: avatar;
-}
-
-.avatar img {
-  height: 90%;
-  width: 90%;
-}
-
-.presentation {
-  grid-area: presentation;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-}
-
-#dito {
-  color: #5ac981;
-}
-
-.checkMeOut {
-  grid-area: checkMeOut;
-  display: flex;
-  justify-content: center;
-  font-weight: 100;
-}
-
-.dismiss {
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
-  justify-content: center;
-}
-
-.dismiss button {
-  height: 60%;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-.social {
-  grid-area: social;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.social i {
-  margin-left: 15px;
 }
