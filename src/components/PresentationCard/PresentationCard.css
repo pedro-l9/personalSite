@@ -1,6 +1,8 @@
 .card {
   grid-area: card;
   animation-duration: 2s;
+  width: 50vw;
+  height: 50vh;
 }
 
 .card-container {
