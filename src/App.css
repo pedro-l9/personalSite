@@ -1,8 +1,9 @@
 .App {
   display: flex;
-  height: 100vh;
+  min-height: -webkit-fill-available;
   width: 100vw;
   font-family: "PressStart2PRegular", sans-serif;
+  align-items: stretch;
 }
 
 .technologies {
@@ -15,6 +16,7 @@
 }
 
 .technologies .nes-container {
+  display: none; /* TODO remove */
   flex-basis: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -34,6 +36,7 @@
 }
 
 .acomplishments-container {
+  display: none; /* TODO remove */
   height: 100%;
 }
 
@@ -62,14 +65,11 @@
   .App {
     overflow: auto;
     flex-direction: column;
+    justify-content: center;
   }
 
   .App > section {
     margin-top: 10px;
-  }
-
-  .card {
-    order: 1;
   }
 
   .technologies {
