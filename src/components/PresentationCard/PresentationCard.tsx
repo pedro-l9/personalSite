@@ -34,9 +34,12 @@ const PresentationCard = () => (
         </button>
       </div>
       <div className="social">
-        <i className="nes-icon github is-large" />
-        <i className="nes-icon linkedin is-large" />
-        <i className="nes-icon instagram is-large" />
+        <a href="https://github.com/pedro-l9" target="_blank">
+          <i className="nes-icon github is-large" />
+        </a>
+        <a href="https://www.linkedin.com/in/phenriquel/" target="_blank">
+          <i className="nes-icon linkedin is-large" />
+        </a>
       </div>
     </div>
   </div>
