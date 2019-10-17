@@ -24,8 +24,6 @@ const PresentationCard = (props: {
 }) => {
   const { t, i18n } = useTranslation();
 
-  console.log(i18n.language);
-
   return (
     <div
       className={`
