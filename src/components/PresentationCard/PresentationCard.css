@@ -82,7 +82,7 @@
   margin-left: 15px;
 }
 
-@media (max-width: 1360px) {
+@media screen and (max-width: 1300px) {
   .card-container {
     display: flex;
     width: 100%;
@@ -98,14 +98,14 @@
   }
 }
 
-@media (min-width: 801px) {
+@media screen and (min-width: 801px) {
   .card {
     flex-basis: 50%;
     align-self: center;
   }
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 800px) {
   .card {
     order: 1;
   }

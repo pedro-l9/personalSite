@@ -44,7 +44,7 @@
   font-size: 12px !important;
 }
 
-@media (min-width: 801px) {
+@media screen and (min-width: 801px) {
   .App {
     overflow: hidden;
     flex-direction: row;
@@ -61,7 +61,7 @@
   }
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 800px) {
   .App {
     overflow: auto;
     flex-direction: column;
