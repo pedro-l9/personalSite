@@ -1,6 +1,13 @@
 {
   "name": "personal-site",
   "version": "1.0.5",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "deploy": "firebase deploy",
+    "deploy:ci": "firebase deploy --non-interactive --force --only hosting",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "@types/react": "16.8.19",
     "@types/react-dom": "16.8.4",
@@ -13,10 +20,8 @@
     "react-scripts": "3.0.1",
     "typescript": "3.4.5"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "firebase-tools": "7.6.1"
   },
   "eslintConfig": {
     "extends": "react-app"

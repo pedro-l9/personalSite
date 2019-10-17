@@ -1,79 +1,58 @@
 aliases:
-  - &restore-cache
+  - &restore-npm-cache
     restore_cache:
+      name: Restore npm Package Cache
       keys:
-        - dependency-cache-{{ .Branch }}-{{ checksum "package.json" }}
-        - dependency-cache- # used if checksum fails
+        - npm-packages-{{ .Branch }}-{{ checksum "package-lock.json" }}
 
-  - &save-cache
+  - &save-npm-cache
     save_cache:
-      key: dependency-cache-{{ .Branch }}-{{ checksum "package.json" }}
+      name: Save npm Package Cache
+      key: npm-packages-{{ .Branch }}-{{ checksum "package-lock.json" }}
       paths:
         - node_modules
 
-  - &restore-functions-cache
-    restore_cache:
-      keys:
-        - functions-dependency-cache-{{ checksum "functions/package-lock.json" }}
-        - functions-dependency-cache- # used if checksum fails
-
-  - &save-functions-cache
-    save_cache:
-      key: functions-dependency-cache-{{ checksum "functions/package-lock.json" }}
-      paths:
-        - functions/node_modules
-
   - &defaults
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:lts-stretch
 
 version: 2
 jobs:
-  # Install and cache dependencies
   install:
     <<: *defaults
     steps:
       - checkout
+      - *restore-npm-cache
       - run:
-          name: Update npm
-          command: "sudo npm install -g npm@latest"
-      - *restore-cache
-      - run: npm install
-      - *save-cache
-
-  # Build production bundle with Webpack
+          name: "Install package root dependencies"
+          command: "npm ci"
+      - persist_to_workspace:
+          root: .
+          paths:
+            - node_modules
+      - *save-npm-cache
   build:
     <<: *defaults
     steps:
       - checkout
-      - *restore-cache
+      - attach_workspace:
+          at: .
       - run: npm run build
-      - *save-cache
       - store_artifacts:
           path: build
       - persist_to_workspace:
           root: .
           paths:
             - build
-
-  # Deploy to Firebase
   deploy:
     <<: *defaults
     steps:
       - checkout
-      - *restore-cache
       - attach_workspace:
           at: .
-      - run: npm install firebase-tools@^7.6.1
-      - *restore-functions-cache
       - run:
-          name: Install dependencies for Firebase Functions
-          command: npm install --prefix=functions
-      - *save-functions-cache
-      - run: npx firebase use default --token=$FIREBASE_DEPLOY_TOKEN
-      - run:
-          name: Deploy to Firebase
-          command: npx firebase deploy --non-interactive --token=$FIREBASE_DEPLOY_TOKEN --only hosting
+          name: "Run deploy script"
+          command: "npm run deploy:ci -- --token=$FIREBASE_DEPLOY_TOKEN"
 
 workflows:
   version: 2
