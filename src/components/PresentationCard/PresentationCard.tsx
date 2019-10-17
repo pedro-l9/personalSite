@@ -9,19 +9,30 @@ import usa from "./flags/usa.png";
 import { useTranslation } from "react-i18next";
 import { i18n } from "i18next";
 
+interface PresentationCardProps {
+  isMobile: boolean;
+  isDismissed: boolean;
+  dismiss: Function;
+}
+
 function logEvent(event: string) {
   firebase.analytics().logEvent(event);
 }
 
-const changeLang = (i18next: i18n, lang: string) => () => {
-  i18next.changeLanguage(lang);
-};
+const languagesSupported = [
+  {
+    lang: "br",
+    flag: br,
+    alt: "Brazil Flag"
+  },
+  {
+    lang: "en",
+    flag: usa,
+    alt: "USA flag"
+  }
+];
 
-const PresentationCard = (props: {
-  isMobile: boolean;
-  isDismissed: boolean;
-  dismiss: Function;
-}) => {
+function PresentationCard(props: PresentationCardProps) {
   const { t, i18n } = useTranslation();
 
   return (
@@ -34,12 +45,14 @@ const PresentationCard = (props: {
     >
       <p className="title">
         {t("helloWorld")}
-        <button onClick={changeLang(i18n, "br")}>
-          <img src={br} alt="Brazil Flag" />
-        </button>
-        <button onClick={changeLang(i18n, "en")}>
-          <img src={usa} alt="USA flag" />
-        </button>
+        {languagesSupported.map(({ lang, flag, alt }) => (
+          <img
+            className="nes-pointer"
+            src={flag}
+            alt={alt}
+            onClick={() => i18n.changeLanguage(lang)}
+          />
+        ))}
       </p>
       <div className="card-container">
         <div className="avatar">
@@ -97,6 +110,6 @@ const PresentationCard = (props: {
       </div>
     </div>
   );
-};
+}
 
 export default PresentationCard;
