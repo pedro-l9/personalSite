@@ -81,16 +81,12 @@ workflows:
     jobs:
       - install:
           filters:
-            branches:
-              ignore: /.*/
             tags:
               only: /v(\d)+(\.(\d)+)+/
       - build:
           requires:
             - install
           filters:
-            branches:
-              ignore: /.*/
             tags:
               only: /v(\d)+(\.(\d)+)+/
       - deploy:
