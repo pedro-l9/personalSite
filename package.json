@@ -1,6 +1,6 @@
 {
   "name": "personal-site",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "dependencies": {
     "@types/react": "16.8.19",
     "@types/react-dom": "16.8.4",
