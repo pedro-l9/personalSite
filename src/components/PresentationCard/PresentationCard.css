@@ -34,7 +34,8 @@
   grid-area: avatar;
 }
 
-.avatar img {
+.avatar img.nes-avatar.is-rounded {
+  border-radius: 100%;
   height: 90%;
   width: 90%;
 }
