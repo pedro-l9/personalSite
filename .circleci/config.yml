@@ -79,10 +79,20 @@ workflows:
   version: 2
   test-build-deploy:
     jobs:
-      - install
+      - install:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /v(\d)+(\.(\d)+)+/
       - build:
           requires:
             - install
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /v(\d)+(\.(\d)+)+/
       - deploy:
           requires:
             - install
