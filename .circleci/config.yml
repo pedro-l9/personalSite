@@ -73,7 +73,7 @@ jobs:
       - run: npx firebase use default --token=$FIREBASE_DEPLOY_TOKEN
       - run:
           name: Deploy to Firebase
-          command: npx firebase deploy --non-interactive --token=$FIREBASE_DEPLOY_TOKEN
+          command: npx firebase deploy --non-interactive --token=$FIREBASE_DEPLOY_TOKEN --only hosting
 
 workflows:
   version: 2
