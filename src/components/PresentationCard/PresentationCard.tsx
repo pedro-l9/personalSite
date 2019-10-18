@@ -7,7 +7,6 @@ import br from "./flags/br.png";
 import usa from "./flags/usa.png";
 
 import { useTranslation } from "react-i18next";
-import { i18n } from "i18next";
 
 interface PresentationCardProps {
   isMobile: boolean;
@@ -50,6 +49,7 @@ function PresentationCard(props: PresentationCardProps) {
             className="nes-pointer"
             src={flag}
             alt={alt}
+            key={lang}
             onClick={() => i18n.changeLanguage(lang)}
           />
         ))}

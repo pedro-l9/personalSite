@@ -5,6 +5,7 @@ import "firebase/analytics";
 import PresentationCard from "./components/PresentationCard/PresentationCard";
 
 import "./App.css";
+import { useTranslation } from "react-i18next";
 
 const mobileWidthThreshold = 800;
 
@@ -18,13 +19,12 @@ const handleDismiss = (setDismissed: Function) => () => {
   setDismissed(true);
 };
 
-const App: React.FC = () => {
+function App() {
   const [isMobile, setIsMobile] = useState(
     window.innerWidth <= mobileWidthThreshold
   );
-
   const [isDismissed, setDismissed] = useState(false);
-
+  const { t } = useTranslation();
   useEffect(() => {
     window.addEventListener("resize", () => handleResize(setIsMobile));
 
@@ -33,63 +33,72 @@ const App: React.FC = () => {
   });
 
   return (
-    <div className="App">
-      <section
-        className={`technologies ${isDismissed ? "animated fadeOutLeft" : ""}`}
-      >
-        <section className="good-at nes-container is-dark with-title is-centered">
-          <p className="title">I'm really good with</p>
-          <section className="tech-list">
-            <i className="nes-icon youtube" />
-            <i className="nes-icon youtube" />
-            <i className="nes-icon youtube" />
-            <i className="nes-icon youtube" />
-            <i className="nes-icon youtube" />
-            <i className="nes-icon youtube" />
-            <i className="nes-icon youtube" />
-            <i className="nes-icon youtube" />
+    <>
+      <div className="App">
+        <section
+          className={`technologies ${
+            isDismissed ? "animated fadeOutLeft" : ""
+          }`}
+        >
+          <section className="good-at nes-container is-dark with-title is-centered">
+            <p className="title">I'm really good with</p>
+            <div className="tech-list">
+              <i className="nes-icon youtube" />
+              <i className="nes-icon youtube" />
+              <i className="nes-icon youtube" />
+              <i className="nes-icon youtube" />
+              <i className="nes-icon youtube" />
+              <i className="nes-icon youtube" />
+              <i className="nes-icon youtube" />
+              <i className="nes-icon youtube" />
+            </div>
+          </section>
+          <section className="played-with nes-container is-dark with-title is-centered">
+            <p className="title">I've played around with</p>
+            <div className="tech-list">
+              <i className="nes-icon youtube" />
+              <i className="nes-icon youtube" />
+              <i className="nes-icon youtube" />
+              <i className="nes-icon youtube" />
+              <i className="nes-icon youtube" />
+              <i className="nes-icon youtube" />
+              <i className="nes-icon youtube" />
+            </div>
+          </section>
+          <section className="will-learn nes-container is-dark with-title is-centered">
+            <p className="title">I plan on learning</p>
+            <div className="tech-list">
+              <i className="nes-icon youtube" />
+              <i className="nes-icon youtube" />
+              <i className="nes-icon youtube" />
+              <i className="nes-icon youtube" />
+              <i className="nes-icon youtube" />
+              <i className="nes-icon youtube" />
+              <i className="nes-icon youtube" />
+            </div>
           </section>
         </section>
-        <section className="played-with nes-container is-dark with-title is-centered">
-          <p className="title">I've played around with</p>
-          <section className="tech-list">
-            <i className="nes-icon youtube" />
-            <i className="nes-icon youtube" />
-            <i className="nes-icon youtube" />
-            <i className="nes-icon youtube" />
-            <i className="nes-icon youtube" />
-            <i className="nes-icon youtube" />
-            <i className="nes-icon youtube" />
+        <PresentationCard
+          isMobile={isMobile}
+          isDismissed={isDismissed}
+          dismiss={handleDismiss(setDismissed)}
+        />
+        <section
+          className={`acomplishments ${
+            isDismissed ? "animated fadeOutRight" : ""
+          }`}
+        >
+          <section className="acomplishments-container nes-container is-dark with-title is-centered">
+            <p className="title">Acomplishments</p>
           </section>
         </section>
-        <section className="will-learn nes-container is-dark with-title is-centered">
-          <p className="title">I plan on learning</p>
-          <section className="tech-list">
-            <i className="nes-icon youtube" />
-            <i className="nes-icon youtube" />
-            <i className="nes-icon youtube" />
-            <i className="nes-icon youtube" />
-            <i className="nes-icon youtube" />
-            <i className="nes-icon youtube" />
-            <i className="nes-icon youtube" />
-          </section>
-        </section>
-      </section>
-      <PresentationCard
-        isMobile={isMobile}
-        isDismissed={isDismissed}
-        dismiss={handleDismiss(setDismissed)}
-      />
-      <section
-        className={`acomplishments ${
-          isDismissed ? "animated fadeOutRight" : ""
-        }`}
-      >
-        <section className="acomplishments-container nes-container is-dark with-title is-centered">
-          <p className="title">Acomplishments</p>
-        </section>
-      </section>
-    </div>
+      </div>
+      <div className="play-button-container">
+        <button type="button" className="nes-btn is-success play-button">
+          {t("play")}
+        </button>
+      </div>
+    </>
   );
-};
+}
 export default App;

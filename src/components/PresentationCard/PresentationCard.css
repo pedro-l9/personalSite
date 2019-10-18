@@ -3,6 +3,7 @@
   padding-right: 15px;
   padding-left: 15px;
   animation-duration: 2s;
+  z-index: 100;
 }
 
 .card .title img {

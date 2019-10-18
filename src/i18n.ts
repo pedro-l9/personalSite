@@ -14,7 +14,8 @@ i18n
           myNameIs: "My name is",
           backendEngineer: "I'm a Backend Engineer at ",
           checkMeOut: "Check me out on:",
-          dismiss: "Dismiss"
+          dismiss: "Dismiss",
+          play: "Play"
         }
       },
       br: {
@@ -23,7 +24,8 @@ i18n
           myNameIs: "Meu nome é",
           backendEngineer: "Trabalho como Backend Engineer na ",
           checkMeOut: "Saiba mais sobre mim:",
-          dismiss: "Ignorar"
+          dismiss: "Ignorar",
+          play: "Jogar"
         }
       }
     },
