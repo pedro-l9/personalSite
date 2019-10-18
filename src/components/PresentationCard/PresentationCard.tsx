@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 
 interface PresentationCardProps {
   isMobile: boolean;
-  isDismissed: boolean;
+  dismissedState: number;
   dismiss: Function;
 }
 
@@ -36,10 +36,11 @@ function PresentationCard(props: PresentationCardProps) {
 
   return (
     <div
+      id="presentation-card"
       className={`
         card nes-container with-title is-dark is-centered 
         ${props.isMobile ? "" : "is-rounded"} 
-        ${props.isDismissed ? "animated hinge" : ""}
+        ${props.dismissedState ? "animated hinge" : ""}
       `}
     >
       <p className="title">

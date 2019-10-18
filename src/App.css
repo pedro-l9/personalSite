@@ -1,4 +1,4 @@
-.App {
+.personal-page {
   position: absolute;
   top: 0;
   left: 0;
@@ -24,7 +24,6 @@
   width: 180px;
   height: 90px;
   font-size: 1.4rem;
-  z-index: 50;
 }
 
 .technologies {
@@ -66,7 +65,7 @@
 }
 
 @media screen and (min-width: 801px) {
-  .App {
+  .personal-page {
     overflow: hidden;
     flex-direction: row;
   }
@@ -83,13 +82,13 @@
 }
 
 @media screen and (max-width: 800px) {
-  .App {
+  .personal-page {
     overflow: auto;
     flex-direction: column;
     justify-content: center;
   }
 
-  .App > section {
+  .personal-page > section {
     margin-top: 10px;
   }
 
