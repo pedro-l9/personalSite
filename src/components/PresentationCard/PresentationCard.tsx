@@ -92,7 +92,7 @@ function PresentationCard(props: PresentationCardProps) {
         </div>
         <div className="social">
           <a
-            href="https://www.linkedin.com/in/phenriquel/"
+            href="https://in.placerda.dev"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => logEvent("linkedin-access")}
@@ -100,7 +100,7 @@ function PresentationCard(props: PresentationCardProps) {
             <i className="nes-icon linkedin is-large" />
           </a>
           <a
-            href="https://github.com/pedro-l9"
+            href="https://github.placerda.dev"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => logEvent("github-access")}
