@@ -70,12 +70,12 @@ function PresentationCard(props: PresentationCardProps) {
             {t("backendEngineer")}
             <span id="dito">
               <a
-                href="https://dito.com.br"
+                href="https://dtidigital.com.br/"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => logEvent("dito-access")}
               >
-                Dito
+                Dti Digital
               </a>
             </span>
           </span>
