@@ -68,12 +68,12 @@ function PresentationCard(props: PresentationCardProps) {
           <h1>Pedro Lacerda</h1>{" "}
           <span>
             {t("backendEngineer")}
-            <span id="dito">
+            <span id="dti">
               <a
                 href="https://dtidigital.com.br/"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => logEvent("dito-access")}
+                onClick={() => logEvent("dti-access")}
               >
                 Dti Digital
               </a>
