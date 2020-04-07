@@ -12,7 +12,7 @@ i18n
         translation: {
           helloWorld: "Hello, world!",
           myNameIs: "My name is",
-          backendEngineer: "I'm a Backend Engineer at ",
+          role: "I'm a Lead Software Developer at ",
           checkMeOut: "Check me out on:",
           dismiss: "Dismiss",
           play: "Play"
@@ -22,7 +22,7 @@ i18n
         translation: {
           helloWorld: "Olá, mundo!",
           myNameIs: "Meu nome é",
-          backendEngineer: "Trabalho como Backend Engineer na ",
+          role: "Sou Desenvolvedor Líder na ",
           checkMeOut: "Saiba mais sobre mim:",
           dismiss: "Ignorar",
           play: "Jogar"

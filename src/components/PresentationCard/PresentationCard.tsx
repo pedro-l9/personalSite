@@ -67,7 +67,7 @@ function PresentationCard(props: PresentationCardProps) {
           {t("myNameIs")}
           <h1>Pedro Lacerda</h1>{" "}
           <span>
-            {t("backendEngineer")}
+            {t("role")}
             <span id="dti">
               <a
                 href="https://dtidigital.com.br/"
