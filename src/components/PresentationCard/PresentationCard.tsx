@@ -1,12 +1,12 @@
-import React from "react";
-import firebase from "firebase/app";
-import "firebase/analytics";
+import React from 'react';
+import firebase from 'firebase/app';
+import 'firebase/analytics';
 
-import "./PresentationCard.css";
-import br from "./flags/br.png";
-import usa from "./flags/usa.png";
+import './PresentationCard.css';
+import br from './flags/br.png';
+import usa from './flags/usa.png';
 
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 interface PresentationCardProps {
   isMobile: boolean;
@@ -20,15 +20,15 @@ function logEvent(event: string) {
 
 const languagesSupported = [
   {
-    lang: "br",
+    lang: 'br',
     flag: br,
-    alt: "Brazil Flag"
+    alt: 'Brazil Flag',
   },
   {
-    lang: "en",
+    lang: 'en',
     flag: usa,
-    alt: "USA flag"
-  }
+    alt: 'USA flag',
+  },
 ];
 
 function PresentationCard(props: PresentationCardProps) {
@@ -39,12 +39,12 @@ function PresentationCard(props: PresentationCardProps) {
       id="presentation-card"
       className={`
         card nes-container with-title is-dark is-centered 
-        ${props.isMobile ? "" : "is-rounded"} 
-        ${props.dismissedState ? "animated hinge" : ""}
+        ${props.isMobile ? '' : 'is-rounded'} 
+        ${props.dismissedState ? 'animated hinge' : ''}
       `}
     >
       <p className="title">
-        {t("helloWorld")}
+        {t('helloWorld')}
         {languagesSupported.map(({ lang, flag, alt }) => (
           <img
             className="nes-pointer"
@@ -64,30 +64,30 @@ function PresentationCard(props: PresentationCardProps) {
           />
         </div>
         <div className="presentation">
-          {t("myNameIs")}
-          <h1>Pedro Lacerda</h1>{" "}
+          {t('myNameIs')}
+          <h1>Pedro Lacerda</h1>{' '}
           <span>
-            {t("role")}
+            {t('role')}
             <span id="dti">
               <a
                 href="https://dtidigital.com.br/"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => logEvent("dti-access")}
+                onClick={() => logEvent('dti-access')}
               >
                 Dti Digital
               </a>
             </span>
           </span>
         </div>
-        <div className="checkMeOut">{t("checkMeOut")}</div>
+        <div className="checkMeOut">{t('checkMeOut')}</div>
         <div className="dismiss">
           <button
             type="button"
             className="nes-btn is-error"
             onClick={() => props.dismiss()}
           >
-            {t("dismiss")}
+            {t('dismiss')}
           </button>
         </div>
         <div className="social">
@@ -95,15 +95,15 @@ function PresentationCard(props: PresentationCardProps) {
             href="https://in.placerda.dev"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => logEvent("linkedin-access")}
+            onClick={() => logEvent('linkedin-access')}
           >
             <i className="nes-icon linkedin is-large" />
           </a>
           <a
-            href="https://github.placerda.dev"
+            href="https://gh.placerda.dev"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => logEvent("github-access")}
+            onClick={() => logEvent('github-access')}
           >
             <i className="nes-icon github is-large" />
           </a>
