@@ -7,9 +7,11 @@ import {
   GAME_BACKGROUND,
 } from './constants';
 
-const getPositionInPlane = (planeSize: number, divisions: number) => (
-  pixel: number
-) => Math.round((pixel * planeSize) / divisions);
+const getPositionInPlane = (
+  planeSize: number,
+  divisions: number,
+  padding: number = 2
+) => (pixel: number) => Math.round((pixel * planeSize) / divisions) - padding;
 
 export function drawFrame(
   canvasDimensions: Canvas,
