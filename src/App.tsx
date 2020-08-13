@@ -14,7 +14,7 @@ function App() {
   const [isMobile, setIsMobile] = useState(
     window.innerWidth <= mobileWidthThreshold
   );
-  const [dismissedState, setDismissed] = useState(0);
+  const [dismissedState, setDismissed] = useState(2);
 
   useEffect(() => {
     window.addEventListener("resize", () => handleResize(setIsMobile));

@@ -9,6 +9,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@pedro-l9/functional-snake": "^0.8.0",
     "@types/react": "16.8.19",
     "@types/react-dom": "16.8.4",
     "firebase": "^7.17.2",
