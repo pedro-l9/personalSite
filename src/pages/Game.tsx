@@ -1,18 +1,33 @@
-import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
-import SnakeGame from "../components/SnakeGame/SnakeGame";
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import SnakeGame from '../components/SnakeGame/SnakeGame';
 
-function Game() {
+interface Props {
+  canPlay: boolean;
+}
+
+function Game({ canPlay }: Props) {
   const { t } = useTranslation();
-  const [hasStarted, setStarted] = useState(false)
+  const [hasStarted, setStarted] = useState(false);
 
   return (
     <div className="play-button-container">
-      {hasStarted ? 
-        <SnakeGame isGameRunning/> : 
-        <button type="button" className="nes-btn is-success play-button" onClick={()=> setStarted(true)}>
-          {t("play")}
-        </button>}
+      {hasStarted ? (
+        <SnakeGame
+          canvasHeight={400}
+          canvasWidth={720}
+          pixelSize={40}
+          isGameRunning={hasStarted}
+        />
+      ) : (
+        <button
+          type="button"
+          className="nes-btn is-success play-button"
+          onClick={() => canPlay && setStarted(true)}
+        >
+          {t('play')}
+        </button>
+      )}
     </div>
   );
 }
