@@ -6,7 +6,10 @@
     "build": "react-scripts build",
     "deploy": "firebase deploy",
     "deploy:ci": "firebase deploy --non-interactive --force --only hosting",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint",
+    "lint:ci": "eslint '*/**/*.{js,ts}' --quiet",
+    "format": "prettier"
   },
   "dependencies": {
     "@pedro-l9/functional-snake": "^0.8.0",
@@ -22,10 +25,25 @@
     "typescript": "3.4.5"
   },
   "devDependencies": {
-    "firebase-tools": "^8.7.0"
+    "eslint": "^7.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-react": "^7.20.6",
+    "firebase-tools": "^8.7.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test:ci"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "npm run lint -- --fix",
+      "npm run format -- --write"
+    ]
   },
   "browserslist": {
     "production": [
