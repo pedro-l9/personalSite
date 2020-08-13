@@ -7,8 +7,8 @@
     "deploy": "firebase deploy",
     "deploy:ci": "firebase deploy --non-interactive --force --only hosting",
     "eject": "react-scripts eject",
-    "lint": "eslint",
-    "lint:ci": "eslint '*/**/*.{js,ts}' --quiet",
+    "lint": "eslint '*/**/*.{js,ts, tsx}'",
+    "lint:ci": "npm run lint -- --quiet",
     "format": "prettier"
   },
   "dependencies": {
@@ -39,7 +39,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts}": [
+    "*.{js,ts, tsx}": [
       "npm run lint -- --fix",
       "npm run format -- --write"
     ]
