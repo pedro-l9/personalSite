@@ -69,18 +69,12 @@ function PresentationCard({
         ))}
       </p>
       <div className="card-container">
-        <div className="avatar">
-          <img
-            className="nes-avatar is-rounded"
-            alt="Avatar"
-            src="https://www.gravatar.com/avatar/1774f7db0ce16124fd9505f0e6851e6a?s=600"
-          />
-        </div>
         <div className="presentation">
           {t('myNameIs')}
           <h1>Pedro Lacerda</h1>{' '}
           <span>
             {t('role')}
+            <br />
             <span id="dti">
               <a
                 href="https://dtidigital.com.br/"

@@ -1,5 +1,4 @@
 .card {
-  grid-area: card;
   padding-right: 15px;
   padding-left: 15px;
   animation-duration: 2s;
@@ -21,29 +20,7 @@
   outline: none;
 }
 
-.card-container {
-  display: grid;
-  height: 95%;
-  width: 100%;
-  grid-template-columns: 1.1fr 2.9fr;
-  grid-template-rows: 1.1fr 0.1fr 0.8fr;
-  grid-template-areas: 'avatar presentation' 'avatar checkMeOut' 'avatar social';
-}
-
-.avatar {
-  grid-area: avatar;
-  display: flex;
-}
-
-.avatar img.nes-avatar.is-rounded {
-  border-radius: 100%;
-  width: 90%;
-  height: auto;
-  align-self: center;
-}
-
 .presentation {
-  grid-area: presentation;
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -55,7 +32,6 @@
 }
 
 .checkMeOut {
-  grid-area: checkMeOut;
   margin-top: 20px;
 }
 
@@ -66,7 +42,6 @@
 }
 
 .social {
-  grid-area: social;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,10 +58,6 @@
     display: flex;
     width: 100%;
     flex-direction: column;
-  }
-
-  .avatar {
-    display: none;
   }
 }
 

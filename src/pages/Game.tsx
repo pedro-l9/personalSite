@@ -22,7 +22,9 @@ function Game({ canPlay }: Props) {
       ) : (
         <button
           type="button"
-          className="nes-btn is-success play-button"
+          className={`nes-btn is-success play-button ${
+            canPlay ? '' : 'is-disabled'
+          }`}
           onClick={() => canPlay && setStarted(true)}
         >
           {t('play')}
