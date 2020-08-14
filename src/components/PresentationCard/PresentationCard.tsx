@@ -31,7 +31,11 @@ const languagesSupported = [
   },
 ];
 
-function PresentationCard(props: PresentationCardProps) {
+function PresentationCard({
+  isMobile,
+  dismissedState,
+  dismiss,
+}: PresentationCardProps) {
   const { t, i18n } = useTranslation();
 
   return (
@@ -39,10 +43,19 @@ function PresentationCard(props: PresentationCardProps) {
       id="presentation-card"
       className={`
         card nes-container with-title is-dark is-centered 
-        ${props.isMobile ? '' : 'is-rounded'} 
-        ${props.dismissedState ? 'animated hinge' : ''}
+        ${isMobile ? '' : 'is-rounded'} 
+        ${dismissedState > 0 ? 'animated hinge' : ''}
       `}
     >
+      {isMobile ? null : (
+        <button
+          className="nes-btn is-error dismiss-btn"
+          type="button"
+          onClick={() => dismiss()}
+        >
+          X
+        </button>
+      )}
       <p className="title">
         {t('helloWorld')}
         {languagesSupported.map(({ lang, flag, alt }) => (
@@ -81,15 +94,7 @@ function PresentationCard(props: PresentationCardProps) {
           </span>
         </div>
         <div className="checkMeOut">{t('checkMeOut')}</div>
-        <div className="dismiss">
-          <button
-            type="button"
-            className="nes-btn is-error"
-            onClick={() => props.dismiss()}
-          >
-            {t('dismiss')}
-          </button>
-        </div>
+
         <div className="social">
           <a
             href="https://in.placerda.dev"
