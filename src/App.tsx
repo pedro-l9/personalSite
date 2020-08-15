@@ -44,11 +44,11 @@ function App() {
             dismissedState={dismissedState}
             setDismissed={setDismissed}
           />
-          <Game canPlay={false} />
+          <Game canPlay={false} setDismissed={setDismissed} />
         </>
       );
     case FALLEN_STATE:
-      return <Game canPlay={true} />;
+      return <Game canPlay={true} setDismissed={setDismissed} />;
     default:
       return <></>;
   }

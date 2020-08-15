@@ -1,8 +1,8 @@
-import React from "react";
-import firebase from "firebase/app";
-import "firebase/analytics";
+import React from 'react';
+import firebase from 'firebase/app';
+import 'firebase/analytics';
 
-import PresentationCard from "../components/PresentationCard/PresentationCard";
+import PresentationCard from '../components/PresentationCard/PresentationCard';
 
 interface PersonalPageProps {
   setDismissed: Function;
@@ -11,11 +11,11 @@ interface PersonalPageProps {
 }
 
 const handleDismiss = (setDismissed: Function) => () => {
-  firebase.analytics().logEvent("dismissed");
-  const presentationCard = document.querySelector("#presentation-card");
+  firebase.analytics().logEvent('dismissed');
+  const presentationCard = document.querySelector('#presentation-card');
 
   if (presentationCard)
-    presentationCard.addEventListener("animationend", function() {
+    presentationCard.addEventListener('animationend', function () {
       setDismissed(2);
     });
 
@@ -27,7 +27,7 @@ function PersonalPage(props: PersonalPageProps) {
     <div className="personal-page">
       <section
         className={`technologies ${
-          props.dismissedState > 0 ? "animated fadeOutLeft" : ""
+          props.dismissedState > 0 ? 'animate__fadeOutLeft' : ''
         }`}
       >
         <section className="good-at nes-container is-dark with-title is-centered">
@@ -75,7 +75,7 @@ function PersonalPage(props: PersonalPageProps) {
       />
       <section
         className={`acomplishments ${
-          props.dismissedState > 0 ? "animated fadeOutRight" : ""
+          props.dismissedState > 0 ? 'animate__fadeOutLeft' : ''
         }`}
       >
         <div className="acomplishments-container nes-container is-dark with-title is-centered">

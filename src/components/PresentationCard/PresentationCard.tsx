@@ -42,9 +42,9 @@ function PresentationCard({
     <div
       id="presentation-card"
       className={`
-        card nes-container with-title is-dark is-centered 
+        card nes-container with-title is-dark is-centered animate__animated
         ${isMobile ? '' : 'is-rounded'} 
-        ${dismissedState > 0 ? 'animated hinge' : ''}
+        ${dismissedState > 0 ? 'animate__hinge' : 'animate__fast'}
       `}
     >
       {isMobile ? null : (

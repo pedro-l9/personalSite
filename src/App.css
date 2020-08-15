@@ -64,6 +64,23 @@
   font-size: 12px !important;
 }
 
+dialog {
+  width: 450px;
+}
+
+dialog menu {
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  width: 100%;
+}
+
+dialog form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @media screen and (min-width: 801px) {
   .personal-page {
     overflow: hidden;

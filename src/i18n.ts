@@ -1,7 +1,7 @@
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
 
-import LanguageDetector from "i18next-browser-languagedetector";
+import LanguageDetector from 'i18next-browser-languagedetector';
 
 i18n
   .use(initReactI18next)
@@ -10,30 +10,36 @@ i18n
     resources: {
       en: {
         translation: {
-          helloWorld: "Hello, world!",
-          myNameIs: "My name is",
+          helloWorld: 'Hello, world!',
+          myNameIs: 'My name is',
           role: "I'm a Lead Software Developer at ",
-          checkMeOut: "Check me out on:",
-          dismiss: "Dismiss",
-          play: "Play"
-        }
+          checkMeOut: 'Check me out on:',
+          play: 'Play',
+          gameOver: 'Game over!',
+          score: 'Score:',
+          restart: 'Restart',
+          goBack: 'Go back',
+        },
       },
       br: {
         translation: {
-          helloWorld: "Olá, mundo!",
-          myNameIs: "Meu nome é",
-          role: "Sou Desenvolvedor Líder na ",
-          checkMeOut: "Saiba mais sobre mim:",
-          dismiss: "Ignorar",
-          play: "Jogar"
-        }
-      }
+          helloWorld: 'Olá, mundo!',
+          myNameIs: 'Meu nome é',
+          role: 'Sou Desenvolvedor Líder na ',
+          checkMeOut: 'Saiba mais sobre mim:',
+          play: 'Jogar',
+          gameOver: 'Game over!',
+          score: 'Pontuação:',
+          restart: 'Reiniciar',
+          goBack: 'Voltar',
+        },
+      },
     },
-    lng: "br",
-    fallbackLng: "en",
+    lng: 'br',
+    fallbackLng: 'en',
     interpolation: {
-      escapeValue: false
-    }
+      escapeValue: false,
+    },
   });
 
 export default i18n;
