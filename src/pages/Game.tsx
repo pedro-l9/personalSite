@@ -31,10 +31,11 @@ function Game({ canPlay, setDismissed }: Props) {
   const previousTimeRef = useRef(0);
   const requestAnimationRef = useRef<number>();
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const frameRateRef = useRef(GAME_REFRESH_RATE);
 
   const updateFrame = useCallback(
     (currentTime: number) => {
-      if (currentTime - previousTimeRef.current > GAME_REFRESH_RATE) {
+      if (currentTime - previousTimeRef.current > frameRateRef.current) {
         const [frame, getFrame] = getFrameRef.current(keyBufferRef.current);
 
         keyBufferRef.current = [];
@@ -49,6 +50,9 @@ function Game({ canPlay, setDismissed }: Props) {
 
           return;
         }
+
+        if (frame.hasSnakeCrashed)
+          frameRateRef.current = (GAME_REFRESH_RATE * 8) / frame.score;
       }
 
       requestAnimationFrame(updateFrame);
@@ -66,6 +70,7 @@ function Game({ canPlay, setDismissed }: Props) {
     keyBufferRef.current = ['LEFT'];
     previousTimeRef.current = 0;
     getFrameRef.current = startGame(frameDimensions);
+    frameRateRef.current = GAME_REFRESH_RATE;
 
     updateFrame(GAME_REFRESH_RATE + 1);
   }, [frameDimensions, updateFrame]);
