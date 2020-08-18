@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Frame } from '@pedro-l9/functional-snake/dist/types';
+import { Frame } from '@pedro-l9/functional-snake';
 
 import './SnakeFrame.css';
 import { isGameFinished, getPositionInPlane } from './utils';

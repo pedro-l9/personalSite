@@ -1,7 +1,11 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { startGame } from '@pedro-l9/functional-snake';
-import { Frame, Input } from '@pedro-l9/functional-snake/dist/types';
+import {
+  startGame,
+  Frame,
+  Input,
+  PartialFrame,
+} from '@pedro-l9/functional-snake';
 
 import SnakeFrame from '../components/SnakeFrame/SnakeFrame';
 import { getInputForKey, isGameFinished } from '../components/SnakeFrame/utils';
@@ -27,7 +31,7 @@ function Game({ canPlay, setDismissed }: Props) {
   };
 
   const keyBufferRef = useRef<Input[]>(['LEFT']);
-  const getFrameRef = useRef(startGame(frameDimensions));
+  const getFrameRef = useRef<PartialFrame>(startGame(frameDimensions));
   const previousTimeRef = useRef(0);
   const requestAnimationRef = useRef<number>();
   const dialogRef = useRef<HTMLDialogElement>(null);

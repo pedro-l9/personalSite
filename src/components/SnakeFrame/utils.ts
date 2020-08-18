@@ -1,4 +1,4 @@
-import { Frame, Input } from '@pedro-l9/functional-snake/dist/types';
+import { Frame, Input } from '@pedro-l9/functional-snake';
 
 export const getPositionInPlane = (
   planeSize: number,
