@@ -66,6 +66,7 @@
 
 dialog {
   width: 450px;
+  overflow: hidden;
 }
 
 dialog menu {

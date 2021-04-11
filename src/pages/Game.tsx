@@ -1,10 +1,17 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, {
+  useState,
+  useRef,
+  useCallback,
+  useEffect,
+  useMemo,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   startGame,
   Frame,
   Input,
   PartialFrame,
+  Dimensions,
 } from '@pedro-l9/functional-snake';
 
 import SnakeFrame from '../components/SnakeFrame/SnakeFrame';
@@ -25,10 +32,13 @@ function Game({ canPlay, setDismissed }: Props) {
   const [hasStarted, setStarted] = useState(false);
   const [currentFrame, setFrame] = useState<Frame>();
 
-  const frameDimensions = {
-    cols: CANVAS_WIDTH / PIXEL_SIZE,
-    rows: CANVAS_HEIGHT / PIXEL_SIZE,
-  };
+  const frameDimensions = useMemo<Dimensions>(
+    () => ({
+      cols: CANVAS_WIDTH / PIXEL_SIZE,
+      rows: CANVAS_HEIGHT / PIXEL_SIZE,
+    }),
+    []
+  );
 
   const keyBufferRef = useRef<Input[]>(['LEFT']);
   const getFrameRef = useRef<PartialFrame>(startGame(frameDimensions));

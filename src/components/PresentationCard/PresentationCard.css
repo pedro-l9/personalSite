@@ -1,6 +1,7 @@
 .card {
   padding-right: 15px;
   padding-left: 15px;
+  border-image-repeat: stretch !important;
   animation-duration: 2s;
 }
 
