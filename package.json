@@ -1,6 +1,6 @@
 {
   "name": "personal-site",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
