@@ -75,14 +75,16 @@ function PresentationCard({
           <span>
             {t('role')}
             <br />
-            <span id="dti">
+            <span id="ciandt">
               <a
-                href="https://dtidigital.com.br/"
+                href="https://ciandt.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => logEvent('dti-access')}
+                onClick={() => logEvent('ciandt-access')}
               >
-                Dti Digital
+                <span className="red">CI</span>
+                <span className="blue">&</span>
+                <span className="red">T</span>
               </a>
             </span>
           </span>

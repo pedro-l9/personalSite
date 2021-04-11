@@ -24,11 +24,20 @@
 .presentation {
   display: flex;
   flex-direction: column;
-  align-items: left;
 }
 
-#dti a {
-  color: #a21e54;
+#ciandt a {
+  font-size: 15pt;
+  text-decoration: none;
+}
+
+#ciandt a .red {
+  color: #ed1941;
+  text-decoration: none;
+}
+
+#ciandt a .blue {
+  color: #20bec6;
   text-decoration: none;
 }
 
