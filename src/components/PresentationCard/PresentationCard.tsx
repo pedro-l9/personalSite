@@ -75,16 +75,14 @@ function PresentationCard({
           <span>
             {t('role')}
             <br />
-            <span id="ciandt">
+            <span id="airdev">
               <a
-                href="https://ciandt.com/"
+                href="https://airdev.co/"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => logEvent('ciandt-access')}
+                onClick={() => logEvent('airdev-access')}
               >
-                <span className="red">CI</span>
-                <span className="blue">&</span>
-                <span className="red">T</span>
+                Airdev
               </a>
             </span>
           </span>

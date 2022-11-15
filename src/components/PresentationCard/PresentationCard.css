@@ -26,19 +26,10 @@
   flex-direction: column;
 }
 
-#ciandt a {
+#airdev a {
   font-size: 15pt;
   text-decoration: none;
-}
-
-#ciandt a .red {
-  color: #ed1941;
-  text-decoration: none;
-}
-
-#ciandt a .blue {
-  color: #20bec6;
-  text-decoration: none;
+  color: #1064ee;
 }
 
 .checkMeOut {
