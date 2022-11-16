@@ -1,0 +1,120 @@
+.personal-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+.play-button-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-button {
+  width: 180px;
+  height: 90px;
+  font-size: 1.4rem;
+}
+
+.technologies {
+  display: flex;
+  flex-direction: column;
+}
+
+.technologies .title {
+  font-size: 12px !important;
+}
+
+.technologies .nes-container {
+  display: none; /* TODO remove */
+  flex-basis: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-top: 10px;
+}
+
+.technologies .tech-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-around;
+  margin-top: -12px;
+}
+.technologies .tech-list i {
+  margin-left: 12px;
+  margin-top: 12px;
+}
+
+.acomplishments-container {
+  display: none; /* TODO remove */
+  height: 100%;
+}
+
+.acomplishments .title {
+  font-size: 12px !important;
+}
+
+dialog {
+  width: 450px;
+  overflow: hidden;
+}
+
+dialog menu {
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  width: 100%;
+}
+
+dialog form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 801px) {
+  .personal-page {
+    overflow: hidden;
+    flex-direction: row;
+  }
+
+  .acomplishments {
+    height: 98.5vh;
+    flex-basis: 25%;
+  }
+
+  .technologies {
+    height: 100vh;
+    flex-basis: 25%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .personal-page {
+    overflow: auto;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .personal-page > section {
+    margin-top: 10px;
+  }
+
+  .technologies {
+    order: 2;
+  }
+
+  .acomplishments {
+    order: 3;
+  }
+}
