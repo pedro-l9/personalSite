@@ -75,14 +75,14 @@ function PresentationCard({
           <span>
             {t('role')}
             <br />
-            <span id="airdev">
+            <span id="company">
               <a
-                href="https://airdev.co/"
+                href="https://www.lawnstarter.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => logEvent('airdev-access')}
+                onClick={() => logEvent('lawnstarter-access')}
               >
-                Airdev
+                Lawnstarter
               </a>
             </span>
           </span>
