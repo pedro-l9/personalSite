@@ -4,7 +4,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "firebase deploy",
+    "deploy": "yarn build && yarn deploy:ci",
     "deploy:ci": "firebase deploy --non-interactive --force --only hosting",
     "eject": "react-scripts eject",
     "format": "prettier"

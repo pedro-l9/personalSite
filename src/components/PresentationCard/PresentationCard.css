@@ -10,6 +10,7 @@
   height: 32px;
   image-rendering: pixelated;
   margin-left: 5px;
+  cursor: pointer;
 }
 
 .card .title button {
@@ -30,6 +31,7 @@
   font-size: 15pt;
   text-decoration: none;
   color: #0ab463;
+  cursor: pointer;
 }
 
 .checkMeOut {
@@ -47,6 +49,10 @@
   align-items: center;
   justify-content: center;
   margin-top: 10px;
+}
+
+.social a {
+  cursor: pointer;
 }
 
 .social i {
